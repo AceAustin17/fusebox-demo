@@ -1,0 +1,26 @@
+<div class="home-page">
+    <mat-card class="home-card">
+        <mat-card-header>
+            <mat-card-title>Bat Signal</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <div class="content">
+                <button (click)="send()" mat-raised-button color="primary">Send Bat Signal</button>
+                <button (click)="cancel()" mat-raised-button color="primary">Cancel Bat Signal</button>
+                <h4 style="font-family: 'Open Sans';">Select Status</h4>
+                <mat-form-field>
+                    <mat-label>Select Status</mat-label>
+                    <mat-select  [(ngModel)]="selectedvalue" >
+                        @for (status of statuses; track status) {
+                        <mat-option [value]="status.value">{{status.viewValue}} </mat-option>
+                        }
+                    </mat-select>
+                </mat-form-field>
+                <button (click)="history()" mat-raised-button color="primary">Get History</button>
+                <p style="font-family: 'Open Sans';">{{historyText | json}}</p>
+            </div>
+
+
+        </mat-card-content>
+    </mat-card>
+</div>

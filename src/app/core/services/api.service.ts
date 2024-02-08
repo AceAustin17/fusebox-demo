@@ -12,4 +12,16 @@ export class ApiService {
   login(body: any): Observable<any> {
     return this.http.post<any>(`${environment.serverUrl}login`, body);
   }
+
+  send(body: any): Observable<any> {
+    return this.http.post<any>(`${environment.serverUrl}panic/send`, body);
+  }
+
+  cancel(body: any): Observable<any> {
+    return this.http.post<any>(`${environment.serverUrl}panic/cancel`, body);
+  }
+
+  history(params: any): Observable<any> {
+    return this.http.get<any>(`${environment.serverUrl}panic/history`, {params});
+  }
 }
